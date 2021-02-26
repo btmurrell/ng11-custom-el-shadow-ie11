@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const concat = require('concat');
 
 concatenate = async (type) =>{
-  await fs.ensureDir('output');
+  await fs.ensureDir('output/scripts');
   ['es5', 'es2015'].forEach(async type => {
     const files = [
       `./dist/fu-bar/runtime-${type}.js`,
@@ -10,8 +10,8 @@ concatenate = async (type) =>{
       // `./dist/fu-bar/scripts.js`,
       `./dist/fu-bar/main-${type}.js`
     ];
-    console.log(`writing output/fu-form-${type}.js`);
-    await concat(files, `output/fu-form-${type}.js`);
+    console.log(`writing output/scripts/fu-form-${type}.js`);
+    await concat(files, `output/scripts/fu-form-${type}.js`);
   
   })
 }

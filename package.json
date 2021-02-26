@@ -4,6 +4,7 @@
   "scripts": {
     "build:comp": "ng build --prod --output-hashing none",
     "postbuild:comp": "node concatenate.js",
+    "serve:comp": "http-server ./output",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -42,6 +43,7 @@
     "codelyzer": "^5.1.2",
     "concat": "^1.0.3",
     "fs-extra": "^9.1.0",
+    "http-server": "^0.12.3",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~5.0.0",
