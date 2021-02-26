@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Testing our custom element</title>
+  <base href="/">
+
+  <!--  OPTION 1 ==============================================================
+    ==> by itself causes out of stack space/stack overflow :
+    SCRIPT28: Out of stack space
+    webcomponents-sd-ce-pf.js (65,290)
+    SCRIPT2343: Stack overflow at line: 65
+  -->
+
+  <script src="//unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-loader.js"></script>
+ 
+
+  <!--  OPTION 2 ==============================================================
+    ==> these two give "ERROR: NotFoundError" / Symbol()_m.wylz5sokas7: undefined
+  -->
+  <!--     
+  <script nomodule src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.5.7/core.min.js"></script>
+  <script nomodule src="//unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-loader.js"></script>
+  -->
+
+  <!--  OPTION 3 ==============================================================
+    ==> this one gives error:
+    SCRIPT28: Out of stack space
+    webcomponents-sd-ce-pf.js (65,290)
+    SCRIPT2343: Stack overflow at line: 65
+  -->
+  <!--   
+  <script src="//unpkg.com/@webcomponents/webcomponentsjs@2.5.0/bundles/webcomponents-sd-ce-pf.js"></script>
+  -->
+
+  <!--  OPTION 4 ==============================================================
+    ==> these two give no error. but also, no rendering. <fu-form></fu-form> 
+          appears to be disregarded.
+  -->
+  <!--   
+  <script nomodule src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.5.7/core.min.js"></script>
+  <script src="@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js"></script>
+  -->
+</head>
+<body>
+  <h1>fu form roks</h1>
+  <fu-form></fu-form>
+  <script src="scripts/fu-form-es5.js" nomodule></script>
+
+  <script src="scripts/fu-form-es2015.js" type="module"></script>
+
+</body>
+</html>

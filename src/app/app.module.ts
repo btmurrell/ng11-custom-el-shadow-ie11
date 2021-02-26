@@ -1,25 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { Injector, NgModule } from '@angular/core';
-import { createCustomElement } from '@angular/elements';
+import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { FuFormComponent } from './fu-form/fu-form.component';
+import { FuFormModule } from './fu-form/fu-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FuFormComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  // bootstrap: [AppComponent, FuFormComponent]
-  bootstrap: [FuFormComponent]
+  declarations: [],
+  imports: [BrowserModule, FuFormModule],
 })
 export class AppModule {
-  constructor(private injector: Injector) {
-    const el = createCustomElement(FuFormComponent, { injector });
-    customElements.define('fu-form', el);
-  }
+  ngDoBootstrap() { }
 }

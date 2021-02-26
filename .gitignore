@@ -6,7 +6,8 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
-/output
+/output/scripts
+/output/@webcomponents
 
 # dependencies
 /node_modules
